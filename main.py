@@ -83,11 +83,7 @@ def takename():
         del listname [0]
     #if link length => 524 characters = error 403
     
-    
 
-    if "alone8y" in listname:
-        listname.remove("alone8y")
-    
     return listname
         
         
@@ -131,4 +127,4 @@ def mainpage():
     
     
 
-main(lien,"interstelard","El31012004", "salut khey !", "Serveur discord venant tout droit du forum 18-25\nNous venons vous apporter :\n-une expérience démocratique\n-une bonne ambiance\n-une modération souple\net surtout la liberté d'expression **TOTALE**\net on donne le script du bot à 300 membres ! \nhttps://discord.gg/rFWUSWjwxp\nhttps://discord.gg/rFWUSWjwxp\nhttps://discord.gg/rFWUSWjwxp\n ps : je suis pas un bot :hap:", 0)
+main(lien,"","", "salut khey !", "Serveur discord venant tout droit du forum 18-25\nNous venons vous apporter :\n-une expérience démocratique\n-une bonne ambiance\n-une modération souple\net surtout la liberté d'expression **TOTALE**\net on donne le script du bot à 300 membres ! \nhttps://discord.gg/rFWUSWjwxp\nhttps://discord.gg/rFWUSWjwxp\nhttps://discord.gg/rFWUSWjwxp\n ps : je suis pas un bot :hap:", 0)
