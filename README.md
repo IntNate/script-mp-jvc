@@ -5,7 +5,7 @@ un script qui permet de spam mp
 > *1 téléchargez le ce fichier et décompressez-le 
 >
 > *2 installez python si vous ne l'avez pas déjà
-> > lien du site pour télécharger python : [Link](https://www.python.org/downloads/)
+> > lien du site pour télécharger python : [python](https://www.python.org/downloads/)
 > > téléchargez la dernière version
 > > c'est une installation assez basique vous ne devriez pas être perdu
 >
