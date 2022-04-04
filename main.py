@@ -1,16 +1,50 @@
-from re import I
-from pip import main
+
 from selenium import webdriver
 import selenium
 from selenium.webdriver.common.by import By
 import time
-
-
 driver = webdriver.Chrome(executable_path="chromedriver.exe")
+
+
+
+
+
+
+
+#choisi le forum où tu veux selectioner les gens que tu vas mp, par défaut c'est le blabla 18-25
 lien = ("https://www.jeuxvideo.com/forums/0-51-0-1-0-1-0-blabla-18-25-ans.htm")
+
+#ici tu rentres ton pseudo
+pseudo = ""
+
+#ici ton mot de passe, si tu n'as pas confiance tu peux laisser les champs vides, 
+# faudra juste te connecter à la main => ça devrait te rediriger sur le forum que tu as remplis plus haut
+#si ça ne le fait pas rends-y manuellement et laisse la magie opérer 
+mot_de_passe = ""
+
+#ici c'est le sujet du message, le truc qu'ils vont voir en tant que notif
+sujet = ""
+
+#ici c'est le messages. /!\ pour revenir à la ligne du dois utiliser "\n" ne reviens pas à la ligne ici /!\
+#petit exemple
+message = "salut les khey\nrejoignez mon discord ou cancer"
+
+#ici tu choisis combien de fois tu veux faire le script
+#si tu laisses 0 il tournera à l'infini
+#/!\ici ne met pas le chiffre en guillemet/!\
+
+nombre_executions = 0
+
+
+
+
 
 
 def main(lien, username, password, subject, message, execution_count):
+    
+    
+    
+    
     infiny_loop = False
     
     if execution_count == 0:
@@ -32,6 +66,8 @@ def main(lien, username, password, subject, message, execution_count):
         mainpage()
         
         execution_count -= 1
+        
+        listname = []
     
     
 
@@ -127,4 +163,4 @@ def mainpage():
     
     
 
-main(lien,"","", "salut khey !", "Serveur discord venant tout droit du forum 18-25\nNous venons vous apporter :\n-une expérience démocratique\n-une bonne ambiance\n-une modération souple\net surtout la liberté d'expression **TOTALE**\net on donne le script du bot à 300 membres ! \nhttps://discord.gg/rFWUSWjwxp\nhttps://discord.gg/rFWUSWjwxp\nhttps://discord.gg/rFWUSWjwxp\n ps : je suis pas un bot :hap:", 0)
+main(lien, pseudo, mot_de_passe, sujet, message, nombre_executions)
