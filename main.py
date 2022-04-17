@@ -5,12 +5,6 @@ from selenium.webdriver.common.by import By
 import time
 driver = webdriver.Chrome(executable_path="chromedriver.exe")
 
-
-
-
-
-
-
 #choisi le forum où tu veux selectioner les gens que tu vas mp, par défaut c'est le blabla 18-25
 lien = ("https://www.jeuxvideo.com/forums/0-51-0-1-0-1-0-blabla-18-25-ans.htm")
 
@@ -23,11 +17,11 @@ pseudo = ""
 mot_de_passe = ""
 
 #ici c'est le sujet du message, le truc qu'ils vont voir en tant que notif
-sujet = ""
+sujet = "Oui c'est pour discord"
 
 #ici c'est le messages. /!\ pour revenir à la ligne du dois utiliser "\n" ne reviens pas à la ligne ici /!\
 #petit exemple
-message = "salut les khey\nrejoignez mon discord ou cancer"
+message = "serveur démocratique avec une bonne ambiance\nhttps://discord.gg/rFWUSWjwxp"
 
 #ici tu choisis combien de fois tu veux faire le script
 #si tu laisses 0 il tournera à l'infini
@@ -36,37 +30,25 @@ message = "salut les khey\nrejoignez mon discord ou cancer"
 nombre_executions = 0
 
 
-
-
-
-
-def main(lien, username, password, subject, message, execution_count):
+def main(lien, username, password, subject, message, ):
     
-    
-    
-    
-    infiny_loop = False
-    
-    if execution_count == 0:
-        infiny_loop = True
-        
     
     driver.get(lien)
 
     AcceptFreeVersion()
-
     login(username, password)
-    
-    while execution_count > 0 or infiny_loop == True:
+    running = True
+    while running:
         
+
+        
+        
+        
+            
         listname = takename()
-        
+            
         sendmp(listname, subject, message)
-        
-        mainpage()
-        
-        execution_count -= 1
-        
+            
         listname = []
     
     
@@ -94,7 +76,7 @@ def login(username, password):
         time.sleep(0.1)
     
 def takename():
-    listname = []
+    listnamevar = []
     character = 63
     
     
@@ -109,18 +91,22 @@ def takename():
                     x = driver.find_element(by=By.XPATH, value=f"/html/body/div[3]/div[4]/div[2]/div[3]/ul/li[{i}]/a").text
                     character += len(x)
                     character += 1
-                    listname.append(x)
+                    listnamevar.append(x)
                     
         next = driver.find_element(by=By.CLASS_NAME, value="pagi-suivant-actif")
-        next.click()
+        try:
+            next.click()
+        except AttributeError():
+            pass
+        
     
     while character > 524:
-        character -= len(listname[0])
-        del listname [0]
+        character -= len(listnamevar[0])
+        del listnamevar [0]
     #if link length => 524 characters = error 403
     
 
-    return listname
+    return listnamevar
         
         
     
@@ -140,19 +126,30 @@ def sendmp(listname, subject, message):
     subject_box.send_keys(subject)
     message_box.send_keys(message)
     send_btn.click()
-    while driver.current_url.startswith("https://www.jeuxvideo.com/messages-prives/message.php?id") == False:
+    while driver.current_url.startswith("https://www.jeuxvideo.com/messages-prives/nouveau.php"):
         time.sleep(1)
-        try: send_btn.click()
+        try: 
+            send_btn2 = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div[2]/div/div[2]/div/form/div[5]/button')
+            send_btn2.click()
         except selenium.common.exceptions.ElementClickInterceptedException:
-            print("erreur selenium")
+            pass
         except selenium.common.exceptions.StaleElementReferenceException:
-            print('cet enculé trouve pas')
-        
-        
-def mainpage():
-    while driver.current_url.startswith("https://www.jeuxvideo.com/messages-prives/message.php?id") == False:
-        time.sleep(0.5)
+            pass
+        except:
+            pass
+    
     driver.get("https://www.jeuxvideo.com/forums/0-51-0-1-0-1-0-blabla-18-25-ans.htm")
+    
+    
+        
+        
+def mainpage(driver):
+    
+    time.sleep(1)
+    driver.get("https://www.jeuxvideo.com/forums/0-51-0-1-0-1-0-blabla-18-25-ans.htm")
+        
+    
+
             
         
         
@@ -163,4 +160,4 @@ def mainpage():
     
     
 
-main(lien, pseudo, mot_de_passe, sujet, message, nombre_executions)
+main(lien, pseudo, mot_de_passe, sujet, message)
