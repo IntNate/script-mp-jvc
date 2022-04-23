@@ -13,8 +13,6 @@ import script
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
-
-
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -57,14 +55,30 @@ class Ui_Form(object):
         self.message_jvc = QtWidgets.QPlainTextEdit(self.formLayoutWidget)
         self.message_jvc.setObjectName("message_jvc")
         self.formLayout.setWidget(6, QtWidgets.QFormLayout.FieldRole, self.message_jvc)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.formLayout.setItem(7, QtWidgets.QFormLayout.FieldRole, spacerItem3)
         self.start_script = QtWidgets.QPushButton(self.formLayoutWidget)
         self.start_script.setObjectName("start_script")
         self.formLayout.setWidget(8, QtWidgets.QFormLayout.SpanningRole, self.start_script)
+        self.label_5 = QtWidgets.QLabel(self.formLayoutWidget)
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.formLayout.setWidget(7, QtWidgets.QFormLayout.SpanningRole, self.label_5)
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Spam mp jvc"))
@@ -77,7 +91,7 @@ class Ui_Form(object):
         self.label_4.setText(_translate("Form", "Le message :"))
         self.message_jvc.setPlaceholderText(_translate("Form", "Mon message  UwU"))
         self.start_script.setText(_translate("Form", "Lancer le script"))
-        
+        self.label_5.setText(_translate("Form", "made with ❤️ by Nate,"))
         self.start_script.clicked.connect(self.start_click)
         
     
@@ -119,3 +133,6 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
+
+
+        

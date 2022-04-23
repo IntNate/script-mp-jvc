@@ -42,7 +42,7 @@ def script(lien, username, password, subject, message, ):
     login(username, password)
     running = True
     while running:
-        
+        listname = []
         listname = takename()
             
         sendmp(listname, subject, message)
