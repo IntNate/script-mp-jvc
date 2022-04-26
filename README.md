@@ -1,4 +1,2 @@
-Version Beta
-
-Marche que sur chrome pour l'instant
-lancez uniquement le fichier main.py
+hop hop 
+on le télécharge ici https://github.com/IntNate/script-mp-jvc/releases/tag/jvc
